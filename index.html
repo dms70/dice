@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+
+    
     <title>Jeux de Dé à 2</title>
   </head>
   <body>
-    <ion-grid>
+    <ion-grid">
       <ion-row>
         <ion-col>
           <div>
@@ -19,8 +20,9 @@
           </div>
         </ion-col>
         <ion-col>
-          <div>
-            New Game
+          <div class="NewGame">
+            <ion-icon name="add-circle-outline" color="icon"></ion-icon>
+            NEW GAME
           </div>
         </ion-col>
         <ion-col>
@@ -28,47 +30,80 @@
  
           </div>
         </ion-col>
-      </ion-row>
-    </ion-grid>
+      </ion-row >
 
-    <ion-grid>
+
+
+      <ion-row class="displayplayer">
+        <ion-col>
+          <div class="player1">
+            <canvas id="markplayer" width="300" height="68"></canvas>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="player2">
+            PLAYER 2
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+
+      <ion-row>
+        <ion-col>
+          <div class="player1score">
+            <canvas id="markplayer" width="20" height="20"></canvas>
+            0
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="blockdice">
+            <canvas id="diceface" width="100" height="100"></canvas>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="player2score">
+           0
+          </div>
+        </ion-col>
+      </ion-row>
+ 
+
+
       <ion-row>
         <ion-col>
           <div>
-            PLayer 1
+            <canvas id="roundscore1" width="150" height="100"></canvas>
           </div>
         </ion-col>
         <ion-col>
           <div>
-            Dice
+           
+            <ion-icon name="sync-circle-outline" color="icon"></ion-icon>
+            ROLL DICE
+            <br><br>
+            <ion-icon name="download-outline"color="icon"></ion-icon>
+            HOLD
+
           </div>
         </ion-col>
         <ion-col>
           <div>
-            PLayer 1
+            <canvas id="roundscore2" width="150" height="100">
+
+            </canvas>
           </div>
         </ion-col>
       </ion-row>
+  
     </ion-grid>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div>
-            Round P1
-          </div>
-        </ion-col>
-        <ion-col>
-          <div>
-            ActionGame
-          </div>
-        </ion-col>
-        <ion-col>
-          <div>
-            Round P2
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <script src="js/script.js"></script>
+  </body>
 
 </html>
