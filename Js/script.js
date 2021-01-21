@@ -1,5 +1,71 @@
 
 
+var ScoreGlobalP1 = 0;
+var ScoreGlobalP2 = 0;
+var ScoreRoundP1 = 0; 
+var ScoreRoundP2 = 0;
+var P1playing = false;
+var P2playing = true;
+var texteP1 = "PLAYER1";
+var texteP2 = "PLAYER2";
+
+
+const canvasP1 = document.getElementById('scoreplayerp1');
+const ctxP1 = canvasP1.getContext('2d');
+
+const canvasP2 = document.getElementById('scoreplayerp2');
+const ctxP2 = canvasP2.getContext('2d');
+
+
+
+function dipslaycanvas (ctxplayer,ScoreGlobal,texte,Pxplaying) {
+
+var ltexte = ctxplayer.measureText(texte);
+
+ctxplayer.beginPath();
+ctxplayer.rect(0, 0, 400, 200);
+ctxplayer.closePath();
+
+ctxplayer.beginPath();
+ctxplayer.fillStyle = "black";
+ctxplayer.font = '48px sans-serif';
+ctxplayer.textAlign = 'center';
+ctxplayer.fillText(texte, 200, 48);
+ctxplayer.closePath();
+
+if (Pxplaying == true) {
+  ctxplayer.beginPath();
+  ctxplayer.arc(380, 34, 10, 0, Math.PI*2, false);
+  ctxplayer.fillStyle = "red";
+  ctxplayer.fill();
+  ctxplayer.closePath();
+};
+
+
+ctxplayer.beginPath();
+ctxplayer.fillStyle = "red";
+ctxplayer.font = '96px sans-serif';
+ctxplayer.textAlign = 'center';
+ctxplayer.fillText(ScoreGlobal, 200, 150);
+ctxplayer.closePath();
+
+}
+
+function Drawdipslaycanvas (ctxplayer,ScoreGlobal,texte,canvasplayer,Pxplaying) {
+ctxplayer.clearRect(0,0, canvasplayer.width, canvasplayer.height);
+dipslaycanvas(ctxplayer,ScoreGlobal,texte,Pxplaying);
+
+}
+
+Drawdipslaycanvas(ctxP1,ScoreGlobalP1,texteP1,canvasP1,P1playing);
+
+Drawdipslaycanvas(ctxP2,ScoreGlobalP2,texteP2,canvasP2,P2playing);
+
+
+
+
+
+
 const canvas1 = document.getElementById('diceface');
 const ctx1 = canvas1.getContext('2d');
 
@@ -15,29 +81,6 @@ ctx1.arc(50, 50, 10, 0, Math.PI*2, false);
 ctx1.fillStyle = "red";
 ctx1.fill();
 ctx1.closePath();
-
-const canvas2 = document.getElementById('markplayer');
-const ctx2 = canvas2.getContext('2d');
-
-ctx2.beginPath();
-ctx2.rect(0, 0, 300, 68);
-ctx2.closePath();
-
-ctx2.beginPath();
-ctx2.fillStyle = "black";
-ctx2.font = '48px sans-serif';
-ctx2.fillText("PLAYER 1", 10, 40);
-ctx2.closePath();
-
-
-ctx2.beginPath(); 
-ctx2.arc(275, 22, 10, 0, Math.PI*2, false);
-ctx2.fillStyle = "red";
-ctx2.fill();
-ctx2.closePath();
-
-
-
 
 
 const canvas3 = document.getElementById('roundscore1');
@@ -62,7 +105,7 @@ ctx3.beginPath();
 ctx3.fillStyle = "white";
 ctx3.font = '24px sans-serif';
 ctx3.textAlign = 'center';
-ctx3.fillText("0", 75, 80);
+ctx3.fillText(ScoreRoundP1, 75, 80);
 ctx3.closePath();
 
 
@@ -88,7 +131,7 @@ ctx4.beginPath();
 ctx4.fillStyle = "white";
 ctx4.font = '24px sans-serif';
 ctx4.textAlign = 'center';
-ctx4.fillText("0", 75, 80);
+ctx4.fillText(ScoreRoundP2, 75, 80);
 ctx4.closePath();
 
 
@@ -256,9 +299,48 @@ ctx.closePath();
 
 }
 
+
+
+
+var button = document.getElementById('iconNewGame')
+
 function NewGame() {
-  return
+
+ScoreGlobalP1 = 50
+ScoreGlobalP2 = 0
+ScoreRoundP1 = 0 
+ScoreRoundP2 = 0
+vplayingP1 = true
+playingP2 = false
+
+
+if (confirm('SOUHAITEZ VOUS LANCER UNE NOUVELLE PARTIE')) {
+ScoreGlobalP1 = 10;
+ScoreGlobalP2 = 50;
+ScoreRoundP1 = 0 ;
+ScoreRoundP2 = 0;
+P1playing = true;
+P2playing = true;
+
+
+
+Drawdipslaycanvas(ctxP1,ScoreGlobalP1,texteP1,canvasP1,P1playing);
+
+Drawdipslaycanvas(ctxP2,ScoreGlobalP2,texteP2,canvasP2,P2playing);
+
+
+} else {
+  
 }
+
+
+
+
+
+}
+
+button.addEventListener('click', NewGame);
+
 
 function displayScoreGobal() {
   return
@@ -287,6 +369,7 @@ function Hold() {
 function RollDice() {
   return
 }
+
 
 
 

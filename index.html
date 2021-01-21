@@ -20,8 +20,8 @@
           </div>
         </ion-col>
         <ion-col>
-          <div class="NewGame">
-            <ion-icon name="add-circle-outline" color="icon"></ion-icon>
+          <div id="NewGame">
+            <ion-icon id="iconNewGame" name="add-circle-outline" color="icon"></ion-icon>
             NEW GAME
           </div>
         </ion-col>
@@ -33,32 +33,10 @@
       </ion-row >
 
 
-
-      <ion-row class="displayplayer">
-        <ion-col>
-          <div class="player1">
-            <canvas id="markplayer" width="300" height="68"></canvas>
-          </div>
-        </ion-col>
-        <ion-col>
-          <div>
-
-          </div>
-        </ion-col>
-        <ion-col>
-          <div class="player2">
-            PLAYER 2
-          </div>
-        </ion-col>
-      </ion-row>
-
-
-
       <ion-row>
         <ion-col>
-          <div class="player1score">
-            <canvas id="markplayer" width="20" height="20"></canvas>
-            0
+          <div class="player1">
+            <canvas id="scoreplayerp1" width="400" height="200"></canvas>
           </div>
         </ion-col>
         <ion-col>
@@ -67,8 +45,7 @@
           </div>
         </ion-col>
         <ion-col>
-          <div class="player2score">
-           0
+          <canvas id="scoreplayerp2" width="400" height="200"></canvas>
           </div>
         </ion-col>
       </ion-row>
@@ -103,6 +80,7 @@
   
     </ion-grid>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
   </body>
 
